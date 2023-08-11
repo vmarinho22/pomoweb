@@ -1,27 +1,20 @@
-import { useState } from "react"
+import '~src/styles/global.css'
+import Home from "~src/pages/Home"
+import Router from '~src/context/router';
+
+const routes = [
+  {
+    prefix: 'home',
+    component: Home,
+    isDefault: true,
+  }
+];
 
 function IndexPopup() {
-  const [data, setData] = useState("")
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: 16
-      }}>
-      <h2>
-        Welcome to your
-        <a href="https://www.plasmo.com" target="_blank">
-          {" "}
-          Plasmo
-        </a>{" "}
-        Extension!
-      </h2>
-      <input onChange={(e) => setData(e.target.value)} value={data} />
-      <a href="https://docs.plasmo.com" target="_blank">
-        View Docs
-      </a>
+    <div className="w-[360px]">
+      <Router routes={routes} />
     </div>
   )
 }
